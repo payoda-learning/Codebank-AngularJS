@@ -1,0 +1,37 @@
+#movie-input-container, #movie-list-container {
+	margin: auto;
+	width: 50%;
+	text-align: center;
+	border: 1px solid black;
+	padding: 10px;
+	overflow: auto;
+}
+.movie-image {
+	width: 15%;
+	float: left;
+	margin: 10px;
+}
+.movie-info {
+	text-align: left;
+}
+.movie-list {
+	width: 100%;
+	overflow: auto;
+	height: 115px;
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+img {
+ 	width: 100%;
+ 	height: 90px;
+}
+.movie-history-list-container {
+	width:23%;
+	position:absolute;
+	overflow: auto;
+}
+a {
+	color: blue;	
+	text-decoration: underline;
+	cursor:pointer;
+}

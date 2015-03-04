@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="movie">
+    <head>
+        <title>Movies List</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <script src="js/lib/angular.min.js"></script>
+    </head>
+    <body>
+    <div ng-controller="moviesController">
+        <div class="movie-history-list-container">
+            <h3>Movies History<button ng-click="removeHistory()">Remove history</button></h3>
+            <div class="movie-history-list" ng-repeat="movieHistory in moviesHistoryList">
+                <a ng-click="getMovie(movieHistory.name)">{{movieHistory.name}}</a>
+                <br/><br/>
+            </div>
+            <h3 ng-if="moviesHistoryList.length==0">No History Found.</h3>
+        </div>
+        <div id="movie-input-container">
+            <h2>Movies Database</h2>
+            <input type="text" ng-model="movieName"><br/><br/>
+            <input type="submit" ng-click = "getMovie(movieName)" value="Search">
+        </div>
+        <div id="movie-list-container">
+        <div class="movie-list" ng-repeat="movie in moviesList">
+            <div class="movie-image">
+                <img ng-src="{{movie.posters.thumbnail}}"/>
+            </div>
+            <div class="movie-info">
+                <div>{{movie.title}}</div>
+                <div>Cast :<span ng-repeat="cast in movie.abridged_cast">{{cast.name}}</span></div>
+                <div>Release year : {{movie.year}}</div>
+                <div>Running time : {{movie.runtime}}</div>
+                <div>Rating : {{movie.ratings.audience_rating}}</div>
+            </div>
+        </div>
+    </div>
+
+    <h3 ng-if="moviesList.length==0">No Data Found.</h3>
+</div>
+
+        <script src="js/controller/app.js"></script>
+        <script src="js/controller/moviesController.js"></script>
+        <script src="js/services/moviesService.js"></script>
+	</body>
+</html>
