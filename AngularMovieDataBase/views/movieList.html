@@ -1,0 +1,27 @@
+<div ng-controller="MovieList" data-ng-init="init()">
+	<h1>Movie DataBase</h1>
+
+	<div class="movieSearch">
+		<input type="text" placeholder="Enter Movie name..." ng-change="onSearch()" ng-model="movieName"><br/>
+		<input type="button" value="Search" ng-click="searchMovie(movieName)"><br/>
+		<ul class="listView" ng-show="showMovieList">
+			<li class="listItem"  ng-repeat = "movie in movies">
+				<img src="{{movie.posters.thumbnail}}">
+				<div class="movieInfo">
+					<span >{{movie.title}}</span>
+					<span>Release Year: {{movie.year}}</span>
+					<span>Running Time: {{movie.runtime}}</span>
+					<span>Rating: {{movie.mpaa_rating}}</span>				
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="recentSearchHistory">
+		<p>Recent Search History</p>
+		<ul class="listView" >
+			<li class="listItem" ng-repeat = "recentSearch in recentSearchs" ng-click="searchMovie(recentSearch.name)"><span>{{recentSearch.name}}</span></li>
+		</ul>
+	</div>
+
+</div>	

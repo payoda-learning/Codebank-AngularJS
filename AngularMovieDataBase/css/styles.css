@@ -1,0 +1,36 @@
+nav ul, nav ol{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.movieSearch{
+	width: 30%;
+	float: left;
+}
+
+.movieSearch{
+	width: 70%;
+	float: left;
+}
+.recentSearchHistory{
+	width: 30%;
+	float: right;
+
+}
+.listItem {
+	padding: 10px 0px;
+	border-bottom: 1px solid #eee;
+	display: block;
+	margin: 0 20px;
+}
+
+.movieInfo{
+
+	display: inline-block;
+}
+
+.movieInfo span{
+
+	display: block;
+}
