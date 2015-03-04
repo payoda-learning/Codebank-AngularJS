@@ -30,6 +30,7 @@ angular.module("MovieDatabase")
 	    $route.current = lastRoute;
 
 	    var movie = next.substr(60,next.length);
+	    $scope.movieName = movie;	    
 	   	MovieListService.loadMovieList(movie, $scope.displayMovieList);
 
 	});
