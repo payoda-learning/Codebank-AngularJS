@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="movieApp">
+	<head>
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+		<script src="js/controller.js"></script>
+	</head>	
+	<body ng-controller="movieCtrl">
+		<div class="container">
+			<h1>Movie Database</h1>
+			<input type="text" name="" ng-model="movieName" placeholder="Enter your movie"/>
+			<input type="button" ng-click="moveieSerach()" value="Search"/>
+			<div ng-show="showSearch">
+				<h4>Last Searched Keyword:</h4>
+				<a href="" ng-click="serviceCall(lastSearchItem)">{{lastSearchItem}}</a>
+			</div>
+			<div ng-show="search">
+				<p>Found <b>{{items.total}}</b> matches for <b>{{movieName}}</b></p>
+				<ul>
+					<li ng-repeat="item in items.movies">
+						<table>
+							<td width="7%" class="img">
+								<img src="{{item.posters.thumbnail}}" />
+							</td>
+							<td width="93%">
+								<h4>{{item.title}}</h4>
+								<p><b>Cast:</b> <span ng-repeat="x in item.abridged_cast">{{x.name}}, </span></p>
+								<p><b>Release Year:</b> {{item.year}}</p>
+								<p><b>Running Time:</b> {{item.runtime}}</p>
+								<p><b>Rating:</b> {{item.mpaa_rating}}</p>
+							</td>
+						</table>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>	
+</html>

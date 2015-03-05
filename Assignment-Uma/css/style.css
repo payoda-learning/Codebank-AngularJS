@@ -1,0 +1,58 @@
+body {
+    font-family: arial;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #666;
+}
+p {
+	font-size: 13px;
+}
+.container {
+	text-align: center;
+}
+.container input{
+	display: block;
+	padding: 10px;
+	border: 1px solid #ccc;
+	width: 80%;
+	margin: 0 auto 10px;
+    border-radius: 5px;
+}
+.container input[type="button"] {
+	background: #ef4d4e;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	padding: 10px 10px;
+	width: 200px;
+    font-weight: bold;
+    font-size: 16px;
+}
+ul {
+	padding: 0;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	width: 90%;
+}
+ul li {
+	list-style: none;
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+}
+table {
+	width: 100%;
+}
+table td {
+    vertical-align: top;
+    padding: 0 0 0 20px;
+    text-align: left;
+}
+table td.img {
+    text-align: center;
+}
+h4 {
+	margin: 0;
+	color: #ef4d4e;
+}
