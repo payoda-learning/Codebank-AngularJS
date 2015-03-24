@@ -1,0 +1,20 @@
+<html ng-app="moviesearch">
+    <head>
+        <title> AngularJS Assignment</title>
+        <script src="/AngularJS/AngularJS_Assignment/lib/angular.js"></script>
+        <script src="/AngularJS/AngularJS_Assignment/lib/angular-route.js"></script>
+        <script src="/AngularJS/AngularJS_Assignment/moviemodule.js"></script>
+        <script src="/AngularJS/AngularJS_Assignment/controllers/movieroutingcontroller.js"></script>
+        <script src="/AngularJS/AngularJS_Assignment/services/movieservices.js"></script>
+        <script src="/AngularJS/AngularJS_Assignment/controllers/moviesearchcontroller.js"></script>
+        
+        
+		
+    </head>
+    <body ng-controller="moviesearchcontroller">
+       <div ng-include="'views/header.html'"></div>
+        <div ng-view>
+           
+        </div>
+    </body>
+</html>

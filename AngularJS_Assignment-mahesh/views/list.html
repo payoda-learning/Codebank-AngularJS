@@ -1,0 +1,18 @@
+<table border="1">
+    <input placeholder="Search for it" ng-model="search">
+    <input type="button" value="Search" ng-click="fetchResults()" />
+			<thead>
+				<tr>
+					<th>title</th>
+					<th>poster</th>
+					<th>cast</th>
+				</tr>	
+			</thead>	
+			<tbody>
+				<tr ng-repeat="sym in symbols">
+					<td>{{sym.title}}</td>
+					<td>{{sym.poster}}</td>
+					<td>{{sym.cast}}</td>
+				</tr>
+			</tbody>	
+		</table>	
