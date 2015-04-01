@@ -1,0 +1,12 @@
+	.movie-details img{
+			float:left;
+		}
+		.movie-details .right{
+			padding-left:100px;
+		}
+		p{
+			margin:5px 0;
+		}
+		.previous-search p{
+			cursor:pointer;
+		}

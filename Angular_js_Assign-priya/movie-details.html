@@ -1,0 +1,30 @@
+<html ng-app="movies">
+	<head>
+	<title>Search your Movie</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body ng-controller="moviesController">
+		<h1>Movies Database</h1>
+		<input type="text" ng-model="movieName">
+		<button ng-click="searchMovie(movieName)">Submit</button>
+		<p>Found <span>{{total}}</span> matches for the <span>{{movieName}}</span></p>
+		<div class="movie-details" ng-repeat="movie in movieInfo">
+		<img ng-src="{{movie.posters.thumbnail}}">
+		<div class="right"><p>{{movie.title}}</p>
+		 <p>Cast: &nbsp;<span>{{movie.abridged_cast.name}}</span></p>
+		 <p>Release year: &nbsp;<span>{{movie.release_dates.theater}}</span></p>
+		 <p>Running time: &nbsp; <span>{{movie.runtime}}</span></p>
+		 <p>Rating: &nbsp; <span>{{movie.ratings.critics_score}}</span></p></div>
+		<hr>
+		</div>
+		<h1>Previous Search</h1>
+		<div ng-init="loadData();">
+			<div class="previous-search" ng-repeat="data in previousSearch">
+				<p ng-click="searchMovie(data.title)">{{data.title}}</p>
+			</div>
+		</div>
+		<script src="lib/angular.min.js"></script>
+		<script src="js/module.js"></script>
+		<script src="js/controller.js"></script>
+	</body>
+</html>
