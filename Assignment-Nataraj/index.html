@@ -1,0 +1,26 @@
+<html ng-app="assignment">
+	<head>		
+		<script src="angular.min.js"></script>	
+		<script src="controller.js"></script>
+	</head>
+	<body>
+		<div ng-controller="assignmentController">		 
+		    <h1>Assignment</h1>
+		    <input type="text" name="search" value="search" placeholder="Search" ng-model="$parent.searchValue">
+		    <input type="submit" value="Searh" ng-click="searchButton()"><br/><br/>
+		    Previous search value : <span id="previousVlaue">{{previousValue}}</span>
+		    <hr>
+	    </div>
+	    <div ng-controller="movieController">	     
+		<div ng-repeat="list in movieList">			
+			 <img ng-src="{{list.posters.detailed}}">
+			 <div>{{list.title}}</div>
+			 Cast: <span ng-repeat="cast in list.abridged_cast"> {{cast.name}},</span><br/>	 
+			 Release Year: <span>{{list.year}}</span><br/>
+			 Running Time: <span>{{list.runtime}}</span><br/>
+			 Rating: <span>{{list.mpaa_rating}}</span><br/>
+			 <hr>
+		</div>		
+	  </div>
+	</body>		
+</html>
