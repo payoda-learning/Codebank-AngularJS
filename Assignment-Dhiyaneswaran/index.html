@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app = "assignment">
+  <head>
+    <title>My Angular App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+    <script src="Controller.js"></script>
+	<script src="storage.min.js"></script>
+  </head>
+  <body ng-controller = "movieDetails" data-ng-init="init()">
+  	<div>
+  		<input type="text" ng-model="movieName"><br/><br/>
+  		<input type="button" ng-click = "getMovie()" value="Search">
+		<div style="float:right">
+				<h1>HISTORY</h1>
+				<a ng-repeat="search in searches" href="">{{search}}<br/></a>
+		</div>
+  		<h2>{{searchResult}}</h2>
+		
+  		<div ng-repeat = 'movie in movies' >
+			<img src = '{{movie.posters.thumbnail}}' style='width:75px;height:75px;float:left;'>
+			<div style="padding-left:82px" >
+				<p style = 'margin-top:5px; '>{{movie.title}}</p>
+				Cast : <p ng-repeat = 'cast in movie.abridged_cast' style = 'display:inline;'>{{cast.name}} <span ng-if = '$index < movie.abridged_cast.length - 1'>,</span></p>
+				<p>Release year: {{movie.year}}</p>
+				<p >Running Time: {{movie.runtime}}</p>
+				<p >Ratting: {{movie.mpaa_rating}}</p>
+			</div>
+			
+  		</div>
+		
+  		<div style="clear:both"></div>
+  </body>
+</html>
