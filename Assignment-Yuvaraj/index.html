@@ -1,0 +1,70 @@
+<html ng-app="Movies">
+	<head>
+		<script src="lib/angular.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>	
+	<body>
+		<div ng-controller="SearchController">
+		<div class="container">
+		<h2>Movies Database</h2>
+		<input type="text" placeholder="Enter the Movie Name" ng-model="Moviename"/><br><br>
+		<input type="button" value="Search" ng-click="searchFunc(Moviename)"/>
+		</div>
+		<hr>
+		
+		<div class="float:right;" ng-repeat="history in History track by $index">
+		<a ng-click="searchFunc(history)">{{history}}</a>
+		</div>
+		<h3 ng-show="Jsonsuccess">Found {{MoviesData.length}} matches for {{searchvalue}}</h3>
+	    <ul>
+		<li ng-repeat="movie in MoviesData">
+		<div class="imgContainer">
+	    <img src="{{movie.posters.thumbnail}}" class="imgsize"></img>
+		</div>
+	    <p>Title:{{movie.title}}</p>
+		Cast:<p ng-repeat="datas in movie.abridged_cast">{{datas.name}},</p>
+		<p>Release Year:{{movie.year}}</p>
+		<p>Running Time:{{movie.runtime}}</p>
+		<p>Rating:{{movie.year}}</p>
+	
+	    </li><br>
+		</ul>
+		</div>
+				
+			
+</div>
+<script>
+var app=angular.module("Movies",[])
+app.controller("SearchController",function($scope,$rootScope,$http){
+	$scope.Jsonsuccess=false;
+	$scope.responseData=[];
+	$scope.History=[];
+	$scope.History=JSON.parse(localStorage.getItem("HistorySearch"));
+	$scope.responseData.push($scope.History);
+	$scope.searchFunc = function(mvename){
+	$scope.Moviename=mvename;
+	$scope.Jsonsuccess=true;
+    $scope.MoviesData=[];
+	$scope.responseData.push(mvename);
+	localStorage.setItem("HistorySearch",JSON.stringify($scope.responseData));
+	//$scope.History=JSON.parse(localStorage.getItem("HistorySearch"));
+    $http.jsonp('http://api.rottentomatoes.com/api/public/v1.0/movies.json?', {
+          params: {
+               q: mvename,
+               apikey: 'edpyxhran22urr7g7m7pdek8',
+               callback: 'JSON_CALLBACK'
+           }
+      })
+      .success(function (data) {
+      $scope.MoviesData=data.movies;
+      });
+	  $scope.searchvalue=mvename;
+	  $scope.History=JSON.parse(localStorage.getItem("HistorySearch"));
+	};
+	
+});
+
+
+</script>
+</body>	
+</html>

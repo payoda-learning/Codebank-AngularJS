@@ -1,0 +1,15 @@
+.container{
+text-align:center;
+}
+.imgsize{
+width:140px;
+height:140px;
+}
+.wholediv{
+width:700px;
+height:800px;
+border:1px solid black;
+}
+.imgContainer{
+float:left;
+}
