@@ -1,0 +1,66 @@
+<html ng-app="Movie">
+<head>
+    <title>Movie DataBase</title>
+    
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="lib/angular-localstorage.min.js"></script>
+    <script src="module/module.js"></script>
+    <script src="controller/controller.js"></script>
+    <script src="service/service.js"></script>
+    
+    </head>
+    
+    <body>
+        
+        <div ng-controller = "MovieController">
+        
+           <h2>Movie DataBase</h2>
+            
+        <div>
+            <h4>Previous Movie Searches</h4>
+            <ol>            
+            <li ng-repeat="previousSearch in data" ng-show="true"><a href="#">{{previousSearch.name}}</a></li>
+            </ol>
+            
+        </div>
+        <div>  
+            <input type="text" placeholder="Enter movie Name" ng-model="movieName"/> 
+        </div>
+            <br/>
+        <div>  
+            <input type="button" value="Search Movie" ng-click="getMovie()"/>
+        </div> 
+                    
+        <br/>
+            <div>  
+            <input type="button" value="Reset Movie List" ng-click="reset()"/>
+        </div> 
+            <br/>
+            
+      <div ng-show="searchResult">Found {{count}} matches for {{title}}</div>
+      <div ng-show="zeroResult">Found 0 matches for <span ng-bind="movieName"></span></div>
+            
+           
+            
+            <table border="1px" ng-show="searchResult">
+                <tr>
+                    <td><img src="{{poster}}" alt="Poster" height="100" width="100"/></td>                   
+                    
+                    <td><span>{{title}}</span><br/>
+                    <span ng-repeat="castName in cast">Cast : {{castName.name}}</span><br/>
+                    <span>Release Year : {{year}}</span><br/>
+                    <span>Running Time : {{time}}</span><br/>
+                    <span>Rating : {{rating}}</span></td>
+                                                        
+                </tr>
+                
+            
+            </table>
+            
+            </div>
+        
+    </body>
+
+
+</html>
